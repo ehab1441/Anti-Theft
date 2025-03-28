@@ -49,7 +49,7 @@ Anti-Theft-Detection/
 
 ### **1. Clone the Repository**  
 ```bash
-git clone https://github.com/ehab1441/ShopLift-Detection
+git clone https://github.com/ehab1441/Anti-Theft
 cd Anti-Theft-Detection
 ```
 
