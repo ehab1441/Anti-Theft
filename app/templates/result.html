@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header {% if prediction == 'Shoplifter' %}bg-danger{% else %}bg-success{% endif %} text-white">
+                    <h3 class="mb-0">Analysis Result</h3>
+                </div>
+                <div class="card-body text-center">
+                    <h4 class="mb-4">The video is classified as: <strong>{{ prediction }}</strong></h4>
+                    
+                    {% if prediction == 'Shoplifter' %}
+                        <div class="alert alert-warning">
+                            <i class="bi bi-exclamation-triangle-fill"></i> Shoplifting activity detected!
+                        </div>
+                        <a href="{% url 'detect_shoplifter' video_path %}" class="btn btn-primary">
+                            <i class="bi bi-box-arrow-in-down-right"></i> View Detection Details
+                        </a>
+                    {% else %}
+                        <div class="alert alert-success">
+                            <i class="bi bi-check-circle-fill"></i> No shoplifting activity detected.
+                        </div>
+                    {% endif %}
+                    
+                    <a href="{% url 'upload_video' %}" class="btn btn-secondary mt-3">
+                        <i class="bi bi-arrow-repeat"></i> Analyze Another Video
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
